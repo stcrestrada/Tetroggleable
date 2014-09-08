@@ -4,7 +4,8 @@ class GamesController < ApplicationController
 	def index
 	end
 
-	def show 
+	def show
+
 		if current_user
 			@game = Game.find(params[:id])
 			@user = User.find(session[:user_id])
@@ -12,6 +13,7 @@ class GamesController < ApplicationController
 			@game = Game.new
 			flash.now[:notice] = "You are not logged in"
 		end
+
 	end
 
 	def new

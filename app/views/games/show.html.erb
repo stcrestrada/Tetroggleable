@@ -1,7 +1,7 @@
 	<div id="info_panel">
 
 	<h1>Tetroggleable</h1>
-	<h2>Welcome! <%= @game.user.username %></h2>
+	<h2>Welcome! <%= @user.name %></h2>
 	<div class="info_boxes" id="boggle_box">
 		<p>BoggleWord</p>
 		<%= text_field_tag "boggle_letters"  %>
@@ -16,7 +16,7 @@
 	</div>
 
 	<div class="info_boxes" id="scrabble_score_box">
-		<p>Scrabble Score: <span id="scrabble_score"></span></p>
+		<p>Scrabble Score: <span id="scrabble_score">0</span></p>
 	</div>
 
 	<div class="info_boxes" id="lines_box">

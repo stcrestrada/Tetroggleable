@@ -4,30 +4,19 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
 
-  root 'application#home'
+   root 'application#home'
+    resources :applications, only: [:home]
+    resources :games
+    resources :users, only: [:show, :edit, :update, :destroy]
 
-  resources :applications, only: [:home]
+  get "profile" => 'users#show'
+  get 'signup' => 'users#new', :as => :signup
+  post 'signup' => 'users#create'
 
-  resources :games
-
-  resources :users, only: [:show, :edit, :update, :destroy]
-    get "profile" => 'users#show'
-    get 'signup' => 'users#new', :as => :signup
-    post 'signup' => 'users#create'
-
-    ## SESSIONS
-    get 'login' => 'sessions#new', :as => :login
-    post 'login' => 'sessions#create'
-    get 'logout' => 'sessions#destroy', :as => :logout
-
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+      ## SESSIONS
+  get 'login' => 'sessions#new', :as => :login
+  post 'login' => 'sessions#create'
+  get 'logout' => 'sessions#destroy', :as => :logout
 
   # Example resource route with options:
   #   resources :products do

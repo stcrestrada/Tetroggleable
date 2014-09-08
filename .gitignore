@@ -1,8 +1,8 @@
 *.rbc
 capybara-*.html
 .rspec
-/log
-/tmp/*
+/log/*.log
+/tmp
 /public/system
 /coverage/
 /spec/tmp

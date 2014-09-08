@@ -14,9 +14,9 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		@user = User.new(user_params)
+		@user = params[:user] ? User.new(user_params) : User.new_guest
 		if @user.save
-			session[:user_id] = @user.id
+   			session[:user_id] = @user.id
 			@game = @user.games.create()
 			redirect_to game_path(@game)
 		else
