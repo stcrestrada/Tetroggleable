@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       @game = @user.games.create()
-      redirect_to game_path(@game)
+      redirect_to game_path(@game)  
     else
       render :new
     end
